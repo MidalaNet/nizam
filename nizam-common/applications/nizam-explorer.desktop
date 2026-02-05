@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Nizam Explorer
+Comment=File manager
+Exec=nizam-explorer
+TryExec=nizam-explorer
+Terminal=false
+StartupNotify=true
+Icon=system-file-manager-symbolic
+Categories=System;Utility;FileManager;

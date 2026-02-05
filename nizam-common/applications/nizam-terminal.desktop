@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Nizam Terminal
+Comment=Terminal emulator
+Exec=nizam-terminal
+TryExec=nizam-terminal
+Terminal=false
+StartupNotify=true
+Icon=utilities-terminal-symbolic
+Categories=System;Utility;TerminalEmulator;

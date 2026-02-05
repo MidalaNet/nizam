@@ -1,0 +1,4 @@
+
+namespace NizamSettings {
+    public const string PKGDATADIR = @PKGDATADIR@;
+}

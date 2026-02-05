@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Nizam Settings
+Comment=Settings manager
+Exec=nizam-settings
+TryExec=nizam-settings
+Terminal=false
+StartupNotify=true
+Icon=preferences-system-symbolic
+Categories=Settings;System;

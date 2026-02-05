@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="com.nizam.desktop" path="/com/nizam/desktop/">
+    <key name="panel-show-clock" type="b">
+      <default>true</default>
+      <summary>Show panel clock</summary>
+      <description>Controls whether the panel clock is visible.</description>
+    </key>
+
+    <key name="panel-clock-format" type="s">
+      <default>'%H:%M'</default>
+      <summary>Clock format</summary>
+      <description>strftime-compatible format used for the panel clock.</description>
+    </key>
+
+    <key name="jgmenu-enabled" type="b">
+      <default>true</default>
+      <summary>Enable jgmenu integration</summary>
+      <description>Controls whether Nizam uses jgmenu for application menus.</description>
+    </key>
+
+    <key name="debug" type="b">
+      <default>false</default>
+      <summary>Debug mode</summary>
+      <description>Enables extra logging for Nizam components.</description>
+    </key>
+  </schema>
+</schemalist>

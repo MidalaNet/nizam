@@ -1,0 +1,140 @@
+/* Nizam GTK3 common – minimal flat, Adwaita-friendly
+ * - No hard-coded colors
+ * - Focus on spacing + reducing borders/shadows
+ */
+
+.nizam-root {
+  /* intentionally empty */
+}
+
+.nizam-menubar {
+  /* No left gutter: keep menu items aligned to the window edge. */
+  padding: 4px 8px 4px 0px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.nizam-toolbar {
+  /* Toolbar spacing comes from widget margins for pixel-perfect alignment */
+  padding: 0;
+  border-width: 0;
+  border-bottom: 1px solid alpha(@borders, 0.6);
+  background: transparent;
+
+}
+
+/* Popup menus from the shell menubar: no left gutter */
+.nizam-menu {
+  padding-left: 0;
+}
+
+.nizam-menu .nizam-menuitem {
+  padding-left: 0;
+}
+
+.nizam-toolbar button {
+  padding: 6px 10px;
+  border-width: 0;
+  box-shadow: none;
+  background-image: none;
+}
+
+.nizam-main {
+  padding: 0;
+  margin: 0;
+}
+
+.nizam-sidebar {
+  padding: 0;
+  border-width: 0;
+  border-right: 1px solid alpha(@borders, 0.6);
+  background: @theme_bg_color;
+}
+
+.nizam-content {
+  background: @view_bg_color;
+}
+
+.nizam-text-editor text selection,
+.nizam-text-editor text selection:focus {
+  background-color: @theme_selected_bg_color;
+  color: @theme_selected_fg_color;
+}
+
+.nizam-textview text selection,
+.nizam-textview text selection:focus {
+  background-color: @theme_selected_bg_color;
+  color: @theme_selected_fg_color;
+}
+
+.nizam-list,
+.nizam-list list,
+.nizam-list treeview {
+  background: @base_color;
+}
+
+.nizam-statusbar {
+  /* More vertical breathing room for status text */
+  padding: 8px 10px;
+  border-width: 0;
+  border-top: 1px solid alpha(@borders, 0.6);
+  background: @theme_bg_color;
+}
+
+.nizam-status-text {
+  color: @insensitive_fg_color;
+  font-size: 90%;
+  /* Extra vertical padding above/below the label baseline */
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.nizam-app-title {
+  font-weight: 600;
+}
+
+.nizam-app-meta {
+  color: @insensitive_fg_color;
+  font-size: 90%;
+}
+
+.nizam-dialog-title {
+  font-weight: 600;
+  font-size: 110%;
+}
+
+.nizam-dialog-subtitle {
+  color: @insensitive_fg_color;
+  font-size: 90%;
+}
+
+.nizam-help-text {
+  color: @insensitive_fg_color;
+  font-size: 90%;
+}
+
+.nizam-secondary-action {
+  /* Secondary actions should be visually quieter, without custom colors */
+  border-width: 0;
+  box-shadow: none;
+  background-image: none;
+}
+
+.nizam-sep {
+  background: alpha(@borders, 0.6);
+}
+
+.nizam-paned > separator {
+  /* Keep resizing behavior, but let sidebar border be the visible separator */
+  background: transparent;
+  background-image: none;
+  border: 0;
+  min-width: 1px;
+}
+
+/* Dialogs/modals: add more side + bottom padding (no hard-coded colors) */
+dialog .dialog-vbox {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}

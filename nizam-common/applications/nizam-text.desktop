@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Nizam Text
+Comment=Plain text editor
+Exec=nizam-text
+TryExec=nizam-text
+Terminal=false
+StartupNotify=true
+Icon=accessories-text-editor-symbolic
+Categories=Utility;TextEditor;

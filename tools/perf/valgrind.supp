@@ -1,0 +1,34 @@
+{
+  xcb_put_image_uninit
+  Memcheck:Param
+  writev(vector[0])
+  fun:__syscall_cancel_arch
+  fun:__internal_syscall_cancel
+  fun:__syscall_cancel
+  fun:writev
+  obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+  fun:xcb_send_request_with_fds64
+  fun:xcb_send_request
+  fun:xcb_put_image
+  obj:/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4
+  obj:/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4
+  obj:/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4
+  obj:/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4
+  obj:/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4
+  obj:/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4
+  obj:/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4
+  obj:/usr/lib/x86_64-linux-gnu/libcairo.so.2.11804.4
+  fun:cairo_paint
+  fun:draw_icon
+  fun:nizam_dock_draw
+  fun:maybe_draw
+  fun:nizam_dock_xcb_event_loop
+  fun:main
+}
+
+{
+  xcb_put_image_uninit_alt
+  Memcheck:Param
+  writev(vector[0])
+  fun:writev
+}

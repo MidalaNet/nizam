@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Nizam Panel
+Comment=Panel for Nizam desktop
+Exec=nizam-panel
+TryExec=nizam-panel
+Terminal=false
+StartupNotify=false
+Icon=nizam
+Categories=System;

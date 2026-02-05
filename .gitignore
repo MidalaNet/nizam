@@ -1,0 +1,87 @@
+# Nizam (.gitignore)
+# Keep sources, icons, configs, and build scripts; ignore build artifacts and local/editor files.
+
+# --- Build outputs (Meson/Ninja)
+**/build/
+**/builddir/
+**/meson-logs/
+**/meson-private/
+**/meson-info/
+**/.ninja_deps
+**/.ninja_log
+**/compile_commands.json
+
+# --- Binaries / objects
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# If you produce app binaries in-tree
+nizam-panel/nizam-panel
+nizam-dock/nizam-dock
+nizam-settings/nizam-settings
+nizam-terminal/nizam-terminal
+nizam-explorer/nizam-explorer
+
+# --- Vala / generated C
+*.c
+*.h
+*.vapi
+*.gir
+*.typelib
+
+# But keep real C sources/headers in src/include trees
+!**/src/**/*.c
+!**/src/**/*.h
+!**/include/**/*.h
+!**/include/**/*.c
+
+# --- Packaging / install leftovers
+*.deb
+*.rpm
+*.pkg.tar.*
+
+# --- Logs / temp
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+
+# --- SQLite databases (runtime state)
+# The DB belongs in $XDG_CONFIG_HOME at runtime, not in git.
+*.db
+*.db-wal
+*.db-shm
+
+# --- OS / desktop
+.DS_Store
+Thumbs.db
+
+# --- IDEs / Editors
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+.idea/
+*.iml
+
+# --- Python/Node (if ever used for tools)
+__pycache__/
+*.py[cod]
+node_modules/
+
+# --- Misc
+.cache/
+AGENTS.md
+nizam.code-workspace
+perf-logs/

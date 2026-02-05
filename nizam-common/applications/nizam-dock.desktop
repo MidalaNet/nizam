@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Nizam Dock
+Comment=Dock for Nizam desktop
+Exec=nizam-dock
+TryExec=nizam-dock
+Terminal=false
+StartupNotify=false
+Icon=nizam
+Categories=System;
