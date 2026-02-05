@@ -31,16 +31,12 @@ nizam-terminal/nizam-terminal
 nizam-explorer/nizam-explorer
 
 # --- Vala / generated C
-*.c
 *.h
 *.gir
 *.typelib
 
-# But keep real C sources/headers in src/include trees
-!**/src/**/*.c
 !**/src/**/*.h
 !**/include/**/*.h
-!**/include/**/*.c
 
 # --- Packaging / install leftovers
 *.deb
