@@ -33,7 +33,6 @@ nizam-explorer/nizam-explorer
 # --- Vala / generated C
 *.c
 *.h
-*.vapi
 *.gir
 *.typelib
 
