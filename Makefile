@@ -6,6 +6,7 @@ DESTDIR ?=
 DOC_INSTALL_DIR_REAL := $(PREFIX)/share/doc/nizam
 DOC_INSTALL_DIR := $(DESTDIR)$(DOC_INSTALL_DIR_REAL)
 DOC_FILES := README.md INSTALL.md USAGE.md CONTRIBUTING.md AUTHORS.md LICENSE.md
+DOC_ASSET_DIR := docs/images
 
 # Install manifest (written at install time, used by uninstall).
 MANIFEST_BASE := $(DESTDIR)$(PREFIX)/share/nizam
@@ -145,6 +146,19 @@ install-docs:
 	@for f in $(DOC_FILES); do \
 		if [ -f "$$f" ]; then install -m 0644 "$$f" "$(DOC_INSTALL_DIR)/$$f"; fi; \
 	done
+	@if [ -d "$(DOC_ASSET_DIR)" ]; then \
+		find "$(DOC_ASSET_DIR)" -type f -print | while IFS= read -r f; do \
+			rel="$${f#$(DOC_ASSET_DIR)/}"; \
+			dirname_part="$$(dirname "$$rel")"; \
+			if [ "$$dirname_part" = "." ]; then \
+				outdir="$(DOC_INSTALL_DIR)/$(DOC_ASSET_DIR)"; \
+			else \
+				outdir="$(DOC_INSTALL_DIR)/$(DOC_ASSET_DIR)/$$dirname_part"; \
+			fi; \
+			mkdir -p "$$outdir"; \
+			install -m 0644 "$$f" "$$outdir/$$(basename "$$rel")"; \
+		done; \
+	fi
 	@mkdir -p "$(MANIFEST_DIR)"
 	@: > "$(MANIFEST_DIR)/docs.installlog"
 	@for f in $(DOC_FILES); do \
@@ -153,6 +167,13 @@ install-docs:
 			else echo "$(DOC_INSTALL_DIR_REAL)/$$f" >> "$(MANIFEST_DIR)/docs.installlog"; fi; \
 		fi; \
 	done
+	@if [ -d "$(DOC_ASSET_DIR)" ]; then \
+		find "$(DOC_ASSET_DIR)" -type f | while IFS= read -r f; do \
+			rel="$${f#$(DOC_ASSET_DIR)/}"; \
+			if [ -n "$(DESTDIR)" ]; then echo "$(DOC_INSTALL_DIR)/$(DOC_ASSET_DIR)/$$rel" >> "$(MANIFEST_DIR)/docs.installlog"; \
+			else echo "$(DOC_INSTALL_DIR_REAL)/$(DOC_ASSET_DIR)/$$rel" >> "$(MANIFEST_DIR)/docs.installlog"; fi; \
+		done; \
+	fi
 
 install-panel: panel
 	@if [ -n "$(DESTDIR)" ]; then meson install -C "$(PANEL_BUILD)" --destdir "$(DESTDIR)"; else meson install -C "$(PANEL_BUILD)"; fi
@@ -235,6 +256,9 @@ uninstall-docs:
 	@for f in $(DOC_FILES); do \
 		rm -f "$(DESTDIR)$(DOC_INSTALL_DIR_REAL)/$$f"; \
 	done
+	@if [ -d "$(DESTDIR)$(DOC_INSTALL_DIR_REAL)/$(DOC_ASSET_DIR)" ]; then \
+		rm -rf "$(DESTDIR)$(DOC_INSTALL_DIR_REAL)/$(DOC_ASSET_DIR)"; \
+	fi
 	@rmdir "$(DESTDIR)$(DOC_INSTALL_DIR_REAL)" 2>/dev/null || true
 
 define MESON_UNINSTALL
